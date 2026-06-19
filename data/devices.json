@@ -1,0 +1,278 @@
+{
+  "categories": ["Smartphones", "Laptops", "Power Stations", "Tablets", "Accessories", "Wearables"],
+  "devices": [
+    {
+      "id": 1,
+      "category": "Smartphones",
+      "name": "iPhone 15 Pro Max",
+      "brand": "Apple",
+      "price": 1199,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=iPhone+15+Pro+Max",
+      "specs": {
+        "display": "6.7-inch OLED, 2796x1290",
+        "processor": "A17 Pro",
+        "ram": "8GB",
+        "storage": ["256GB", "512GB", "1TB"],
+        "battery": "4441 mAh",
+        "camera": "48MP + 12MP + 12MP",
+        "os": "iOS 17",
+        "weight": "221g"
+      },
+      "rating": 4.7,
+      "availability": true
+    },
+    {
+      "id": 2,
+      "category": "Smartphones",
+      "name": "Samsung Galaxy S24 Ultra",
+      "brand": "Samsung",
+      "price": 1299,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Galaxy+S24+Ultra",
+      "specs": {
+        "display": "6.8-inch AMOLED, 3120x1440",
+        "processor": "Snapdragon 8 Gen 3",
+        "ram": "12GB",
+        "storage": ["256GB", "512GB", "1TB"],
+        "battery": "5000 mAh",
+        "camera": "200MP + 12MP + 50MP + 10MP",
+        "os": "Android 14",
+        "weight": "232g"
+      },
+      "rating": 4.8,
+      "availability": true
+    },
+    {
+      "id": 3,
+      "category": "Smartphones",
+      "name": "Google Pixel 8 Pro",
+      "brand": "Google",
+      "price": 999,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Pixel+8+Pro",
+      "specs": {
+        "display": "6.7-inch OLED, 2992x1440",
+        "processor": "Tensor G3",
+        "ram": "12GB",
+        "storage": ["128GB", "256GB", "512GB"],
+        "battery": "5050 mAh",
+        "camera": "50MP + 48MP + 48MP",
+        "os": "Android 14",
+        "weight": "213g"
+      },
+      "rating": 4.6,
+      "availability": true
+    },
+    {
+      "id": 4,
+      "category": "Laptops",
+      "name": "MacBook Pro 16 M3 Max",
+      "brand": "Apple",
+      "price": 2499,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=MacBook+Pro+16",
+      "specs": {
+        "display": "16.2 inch Liquid Retina XDR, 3456x2234",
+        "processor": "Apple M3 Max",
+        "ram": "36GB",
+        "storage": ["512GB", "1TB", "2TB"],
+        "battery": "Up to 22 hours",
+        "graphics": "M3 Max GPU (30-core)",
+        "os": "macOS Sonoma",
+        "weight": "2.14kg"
+      },
+      "rating": 4.9,
+      "availability": true
+    },
+    {
+      "id": 5,
+      "category": "Laptops",
+      "name": "Dell XPS 15",
+      "brand": "Dell",
+      "price": 1599,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Dell+XPS+15",
+      "specs": {
+        "display": "15.6 inch OLED, 3456x2160",
+        "processor": "Intel Core i7-13700H",
+        "ram": "16GB",
+        "storage": ["512GB", "1TB", "2TB"],
+        "battery": "Up to 13 hours",
+        "graphics": "NVIDIA RTX 4060",
+        "os": "Windows 11",
+        "weight": "1.86kg"
+      },
+      "rating": 4.5,
+      "availability": true
+    },
+    {
+      "id": 6,
+      "category": "Laptops",
+      "name": "ThinkPad X1 Carbon Gen 11",
+      "brand": "Lenovo",
+      "price": 1649,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=ThinkPad+X1+Carbon",
+      "specs": {
+        "display": "14 inch IPS, 2880x1800",
+        "processor": "Intel Core i7-1365U",
+        "ram": "16GB",
+        "storage": ["512GB", "1TB"],
+        "battery": "Up to 15 hours",
+        "graphics": "Intel Iris Xe",
+        "os": "Windows 11",
+        "weight": "1.12kg"
+      },
+      "rating": 4.6,
+      "availability": true
+    },
+    {
+      "id": 7,
+      "category": "Power Stations",
+      "name": "EcoFlow DELTA 2",
+      "brand": "EcoFlow",
+      "price": 999,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=EcoFlow+DELTA+2",
+      "specs": {
+        "capacity": "1024Wh",
+        "output": "1800W (3600W X-Boost)",
+        "ac_outlets": 4,
+        "usb_ports": 4,
+        "charging": "AC, Solar, USB-C PD, Car",
+        "weight": "12.3kg",
+        "warranty": "5 years"
+      },
+      "rating": 4.7,
+      "availability": true
+    },
+    {
+      "id": 8,
+      "category": "Power Stations",
+      "name": "Jackery Explorer 1000 Pro",
+      "brand": "Jackery",
+      "price": 799,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Jackery+1000+Pro",
+      "specs": {
+        "capacity": "1002Wh",
+        "output": "1000W (2000W peak)",
+        "ac_outlets": 3,
+        "usb_ports": 3,
+        "charging": "AC, Solar, USB-C PD, Car",
+        "weight": "11.5kg",
+        "warranty": "2 years"
+      },
+      "rating": 4.5,
+      "availability": true
+    },
+    {
+      "id": 9,
+      "category": "Power Stations",
+      "name": "Goal Zero Yeti 500X",
+      "brand": "Goal Zero",
+      "price": 599,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Yeti+500X",
+      "specs": {
+        "capacity": "505Wh",
+        "output": "500W (1000W peak)",
+        "ac_outlets": 2,
+        "usb_ports": 4,
+        "charging": "AC, Solar, USB-C PD, Car",
+        "weight": "5.4kg",
+        "warranty": "2 years"
+      },
+      "rating": 4.3,
+      "availability": true
+    },
+    {
+      "id": 10,
+      "category": "Tablets",
+      "name": "iPad Pro 12.9 M2",
+      "brand": "Apple",
+      "price": 1099,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=iPad+Pro+12.9",
+      "specs": {
+        "display": "12.9 inch Liquid Retina XDR",
+        "processor": "Apple M2",
+        "ram": "8GB",
+        "storage": ["256GB", "512GB", "1TB"],
+        "battery": "Up to 10 hours",
+        "camera": "12MP + 10MP",
+        "os": "iPadOS 17",
+        "weight": "682g"
+      },
+      "rating": 4.8,
+      "availability": true
+    },
+    {
+      "id": 11,
+      "category": "Tablets",
+      "name": "Samsung Galaxy Tab S9 Ultra",
+      "brand": "Samsung",
+      "price": 1199,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Galaxy+Tab+S9",
+      "specs": {
+        "display": "14.6 inch Dynamic AMOLED 2X",
+        "processor": "Snapdragon 8 Gen 2",
+        "ram": "16GB",
+        "storage": ["256GB", "512GB", "1TB"],
+        "battery": "11200 mAh",
+        "camera": "13MP + 8MP",
+        "os": "Android 13",
+        "weight": "732g"
+      },
+      "rating": 4.6,
+      "availability": true
+    },
+    {
+      "id": 12,
+      "category": "Accessories",
+      "name": "Anker 737 Power Bank",
+      "brand": "Anker",
+      "price": 109,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Anker+737",
+      "specs": {
+        "capacity": "24000 mAh",
+        "output": "140W USB-C, 180W total",
+        "usb_ports": 3,
+        "weight": "632g",
+        "fast_charging": "140W USB-C PD 3.1",
+        "led_display": true
+      },
+      "rating": 4.6,
+      "availability": true
+    },
+    {
+      "id": 13,
+      "category": "Wearables",
+      "name": "Apple Watch Ultra 2",
+      "brand": "Apple",
+      "price": 399,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Watch+Ultra+2",
+      "specs": {
+        "display": "49mm OLED, 2000 nits",
+        "processor": "S9 SiP",
+        "battery": "Up to 36 hours",
+        "water_resistance": "100m",
+        "gps": "Dual-frequency GPS",
+        "connectivity": "Wi-Fi, Bluetooth 5.3, LTE",
+        "weight": "61.4g"
+      },
+      "rating": 4.7,
+      "availability": true
+    },
+    {
+      "id": 14,
+      "category": "Wearables",
+      "name": "Samsung Galaxy Watch 6 Classic",
+      "brand": "Samsung",
+      "price": 399,
+      "image": "https://placehold.co/300x300/1a1a2e/ffffff?text=Galaxy+Watch+6",
+      "specs": {
+        "display": "47mm Super AMOLED",
+        "processor": "Exynos W930",
+        "battery": "Up to 40 hours",
+        "water_resistance": "50m",
+        "gps": "L1/L5 GPS",
+        "connectivity": "Wi-Fi, Bluetooth 5.3, LTE",
+        "weight": "~59g"
+      },
+      "rating": 4.5,
+      "availability": true
+    }
+  ]
+}

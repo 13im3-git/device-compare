@@ -1,0 +1,23 @@
+<div class="device-card" data-id="<%= device.id %>">
+  <div class="device-image">
+    <% if(device.image) { %>
+      <img src="<%= device.image %>" alt="<%= device.name %>" loading="lazy">
+    <% } else { %>
+      <div class="no-image"><%= device.name.charAt(0) %></div>
+    <% } %>
+    <div class="device-rating">
+      <span class="stars"><%= '★'.repeat(Math.floor(device.rating)) %><%= (device.rating % 1) >= 0.5 ? '+' : '' %></span>
+      <span class="rating-num"><%= device.rating.toFixed(1) %></span>
+    </div>
+  </div>
+  <div class="device-info">
+    <span class="device-brand"><%= device.brand %></span>
+    <h3 class="device-name"><%= device.name %></h3>
+    <p class="device-category"><%= device.category %></p>
+    <div class="device-footer">
+      <span class="device-price">$<%= device.price.toLocaleString() %></span>
+      <a href="/device/<%= device.id %>" class="btn btn-sm">View</a>
+      <button class="btn btn-sm btn-compare" onclick="toggleCompare(<%= device.id %>)" data-id="<%= device.id %>">Compare</button>
+    </div>
+  </div>
+</div>

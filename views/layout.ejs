@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'DeviceCompare' %></ title>
+  <meta name="description" content="Compare phones, laptops, power stations, tablets, wearables and more. Find the best device for your needs.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">DeviceCompare</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/products" class="nav-link active">Browse</a></li>
+        <li><a href="/compare" class="nav-link">Compare</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="search-box">
+          <input type="text" id="navSearch" placeholder="Search devices..." autocomplete="off">
+          <button id="navSearchBtn">🔍</button>
+          <div class="search-dropdown" id="searchDropdown"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <%- body %>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>DeviceCompare</h4>
+          <p>Your trusted source for comparing phones, laptops, power stations, tablets, wearables and all imaginable devices.</p>
+        </div>
+        <div>
+          <h4>Categories</h4>
+          <ul>
+            <% categories.forEach(c => { %>
+              <li><a href="/category/<%= encodeURIComponent(c) %>"><%= c %></a></li>
+            <% }) %>
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/products">All Products</a></li>
+            <li><a href="/compare">Compare Devices</a></li>
+            <li><a href="/category/Smartphones">Smartphones</a></li>
+            <li><a href="/category/Laptops">Laptops</a></li>
+            <li><a href="/category/Power Stations">Power Stations</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 DeviceCompare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

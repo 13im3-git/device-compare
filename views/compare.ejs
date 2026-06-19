@@ -1,0 +1,116 @@
+<section class="compare-page">
+  <div class="container">
+    <h1 class="page-title">Compare Devices</h1>
+    <p class="page-subtitle">Select up to 4 devices to compare side by side</p>
+
+    <% if(error) { %>
+      <div class="alert alert-info"><%= error %></div>
+    <% } %>
+
+    <div class="compare-layout">
+      <div class="compare-selector">
+        <h3>Pick Devices</h3>
+        <select id="compareSelect1" onchange="updateCompareFromSelect()">
+          <option value="">Select device 1...</option>
+          <% devicesData.devices.forEach(d => { %>
+            <option value="<%= d.id %>"><%= d.brand %> - <%= d.name %> (<%= d.category %>)</option>
+          <% }) %>
+        </select>
+        <select id="compareSelect2" onchange="updateCompareFromSelect()">
+          <option value="">Select device 2...</option>
+          <% devicesData.devices.forEach(d => { %>
+            <option value="<%= d.id %>"><%= d.brand %> - <%= d.name %> (<%= d.category %>)</option>
+          <% }) %>
+        </select>
+        <select id="compareSelect3" onchange="updateCompareFromSelect()">
+          <option value="">Select device 3 (optional)...</option>
+          <% devicesData.devices.forEach(d => { %>
+            <option value="<%= d.id %>"><%= d.brand %> - <%= d.name %> (<%= d.category %>)</option>
+          <% }) %>
+        </select>
+        <select id="compareSelect4" onchange="updateCompareFromSelect()">
+          <option value="">Select device 4 (optional)...</option>
+          <% devicesData.devices.forEach(d => { %>
+            <option value="<%= d.id %>"><%= d.brand %> - <%= d.name %> (<%= d.category %>)</option>
+          <% }) %>
+        </select>
+        <button class="btn btn-primary btn-full" onclick="goCompare()">Compare Now</button>
+      </div>
+
+      <% if(devices.length > 0) { %>
+        <div class="compare-table-wrapper">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th class="compare-row-header">Feature</th>
+                <% devices.forEach(d => { %>
+                  <th>
+                    <div class="compare-th">
+                      <img src="<%= d.image %>" alt="<%= d.name %>" class="compare-thumb">
+                      <div>
+                        <div class="compare-brand"><%= d.brand %></div>
+                        <div class="compare-name"><%= d.name %></div>
+                        <div class="compare-price">$<%= d.price.toLocaleString() %></div>
+                      </div>
+                    </div>
+                  </th>
+                <% }) %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rating</td>
+                <% devices.forEach(d => { %>
+                  <td><strong><%= d.rating.toFixed(1) %> ★</strong></td>
+                <% }) %>
+              </tr>
+              <tr>
+                <td>Category</td>
+                <% devices.forEach(d => { %>
+                  <td><%= d.category %></td>
+                <% }) %>
+              </tr>
+              <% 
+                const allSpecKeys = new Set();
+                devices.forEach(d => Object.keys(d.specs).forEach(k => allSpecKeys.add(k)));
+                allSpecKeys.forEach(key => { 
+              %>
+                <tr>
+                  <td><%= key.replace(/_/g, ' ').replace(/\b\w/g, function(l){return l.toUpperCase();}) %></td>
+                  <% devices.forEach(d => { %>
+                    <td><%= d.specs[key] || '-' %></td>
+                  <% }) %>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<script>
+function updateCompareFromSelect() {
+  var ids = [];
+  var select1 = document.getElementById('compareSelect1');
+  var select2 = document.getElementById('compareSelect2');
+  var select3 = document.getElementById('compareSelect3');
+  var select4 = document.getElementById('compareSelect4');
+  [select1, select2, select3, select4].forEach(function(sel){ if(sel && sel.value) ids.push(sel.value); });
+  if (ids.length >= 2) {
+    window.location.href = '/compare?ids=' + ids.join(',');
+  }
+}
+
+function goCompare() {
+  var ids = [];
+  var select1 = document.getElementById('compareSelect1');
+  var select2 = document.getElementById('compareSelect2');
+  var select3 = document.getElementById('compareSelect3');
+  var select4 = document.getElementById('compareSelect4');
+  [select1, select2, select3, select4].forEach(function(sel){ if(sel && sel.value) ids.push(sel.value); });
+  if (ids.length >= 2) window.location.href = '/compare?ids=' + ids.join(',');
+  else alert('Please select at least 2 devices');
+}
+</script>

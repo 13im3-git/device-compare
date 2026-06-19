@@ -1,0 +1,79 @@
+<section class="products-page">
+  <div class="container">
+    <h1 class="page-title">All Devices</h1>
+
+    <div class="products-layout">
+      <aside class="filters-sidebar">
+        <h3>Filters</h3>
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="filterCategory" onchange="applyFilters()">
+            <option value="all">All Categories</option>
+            <% categories.forEach(c => { %>
+              <option value="<%= c %>" <%= filters.category === c ? 'selected' : '' %>><%= c %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Brand</label>
+          <select id="filterBrand" onchange="applyFilters()">
+            <option value="">All Brands</option>
+            <% brands.forEach(b => { %>
+              <option value="<%= b %>" <%= filters.brand === b ? 'selected' : '' %>><%= b %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Sort By</label>
+          <select id="filterSort" onchange="applyFilters()">
+            <option value="">Default</option>
+            <option value="price-asc" <%= filters.sort === 'price-asc' ? 'selected' : '' %>>Price: Low to High</option>
+            <option value="price-desc" <%= filters.sort === 'price-desc' ? 'selected' : '' %>>Price: High to Low</option>
+            <option value="rating" <%= filters.sort === 'rating' ? 'selected' : '' %>>Highest Rated</option>
+            <option value="name" <%= filters.sort === 'name' ? 'selected' : '' %>>Name A-Z</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Search</label>
+          <input type="text" id="filterSearch" placeholder="Search devices..." value="<%= filters.search || '' %>" oninput="applyFilters()">
+        </div>
+        <button class="btn btn-secondary btn-full" onclick="clearFilters()">Clear Filters</button>
+      </aside>
+
+      <div class="products-main">
+        <div class="products-header">
+          <p class="results-count"><%= devices.length %> device(s) found</p>
+        </div>
+        <div class="devices-grid">
+          <% devices.forEach(device => { %>
+            <%- include('partials/device-card', { device }) %>
+          <% }) %>
+        </div>
+        <% if(devices.length === 0) { %>
+          <div class="no-results">
+            <h3>No devices found</h3>
+            <p>Try adjusting your filters or search terms.</p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function applyFilters() {
+  const params = new URLSearchParams();
+  const cat = document.getElementById('filterCategory').value;
+  const brand = document.getElementById('filterBrand').value;
+  const sort = document.getElementById('filterSort').value;
+  const search = document.getElementById('filterSearch').value;
+  if (cat && cat !== 'all') params.set('category', cat);
+  if (brand) params.set('brand', brand);
+  if (sort) params.set('sort', sort);
+  if (search) params.set('search', search);
+  window.location.href = '/products?' + params.toString();
+}
+function clearFilters() {
+  window.location.href = '/products';
+}
+</script>

@@ -1,0 +1,51 @@
+<section class="device-page">
+  <div class="container">
+    <div class="device-layout">
+      <div class="device-main">
+        <div class="device-hero">
+          <div class="device-hero-image">
+            <% if(device.image) { %>
+              <img src="<%= device.image %>" alt="<%= device.name %>">
+            <% } else { %>
+              <div class="no-image-lg"><%= device.name.charAt(0) %></div>
+            <% } %>
+            <div class="device-rating-badge">
+              <span class="stars"><%= '★'.repeat(Math.floor(device.rating)) %><%= (device.rating % 1) >= 0.5 ? '+' : '' %></span>
+              <span class="rating-num"><%= device.rating.toFixed(1) %></span>
+            </div>
+          </div>
+          <div class="device-hero-info">
+            <span class="device-brand"><%= device.brand %></span>
+            <h1 class="device-title"><%= device.name %></h1>
+            <p class="device-category-label"><%= device.category %></p>
+            <div class="device-price-lg">$<%= device.price.toLocaleString() %></div>
+            <div class="device-actions">
+              <a href="/compare?ids=<%= device.id %>" class="btn btn-secondary">Compare</a>
+              <button class="btn btn-primary btn-compare-lg" onclick="toggleCompare(<%= device.id %>)" data-id="<%= device.id %>">Add to Compare</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="specs-section">
+          <h2>Specifications</h2>
+          <table class="specs-table">
+            <% Object.entries(device.specs).forEach(function(entry){ var key=entry[0]; var val=entry[1]; %>
+              <tr>
+                <td class="spec-key"><%= key.replace(/_/g, ' ').replace(/\b\w/g, function(l){return l.toUpperCase();}) %></td>
+                <td class="spec-val"><%= val %></td>
+              </tr>
+            <% }) %>
+          </table>
+        </div>
+      </div>
+
+      <aside class="device-sidebar">
+        <div class="sidebar-card">
+          <h3>Quick Compare</h3>
+          <div id="compareList" class="compare-list"></div>
+          <button class="btn btn-primary btn-full" id="compareBtn" onclick="goCompare()" style="display: none;">Compare Selected</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

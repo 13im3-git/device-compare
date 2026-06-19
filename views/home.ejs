@@ -1,0 +1,62 @@
+<section class="hero">
+  <div class="container">
+    <h1>Compare Any Device,<br>Make the Right Choice</h1>
+    <p>Phones, laptops, power stations, tablets, wearables and more. Side-by-side specs, ratings and prices.</p>
+    <div class="hero-actions">
+      <a href="/products" class="btn btn-primary">Browse All Devices</a>
+      <a href="/compare" class="btn btn-secondary">Start Comparing</a>
+    </div>
+  </div>
+</section>
+
+<section class="categories-section">
+  <div class="container">
+    <h2 class="section-title">Browse by Category</h2>
+    <div class="categories-grid">
+      <% categories.forEach(cat => { %>
+        <a href="/category/<%= encodeURIComponent(cat) %>" class="category-card">
+          <div class="category-icon">
+            <% if(cat === 'Smartphones') { %>📱<% } else if(cat === 'Laptops') { %>💻<% } else if(cat === 'Power Stations') { %>🔋<% } else if(cat === 'Tablets') { %>📋<% } else if(cat === 'Accessories') { %>🎧<% } else { %>⌚<% } %>
+          </div>
+          <span class="category-name"><%= cat %></span>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<% if(featured.length > 0) { %>
+<section class="featured-section">
+  <div class="container">
+    <h2 class="section-title">Top Rated Devices</h2>
+    <div class="devices-grid">
+      <% featured.forEach(device => { %>
+        <%- include('partials/device-card', { device }) %>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<section class="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Browse Devices</h3>
+        <p>Explore our comprehensive database of phones, laptops, power stations, tablets and more.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Select to Compare</h3>
+        <p>Pick up to 4 devices you want to compare side by side.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>See the Difference</h3>
+        <p>View detailed specs, ratings and prices in an easy to read comparison table.</p>
+      </div>
+    </div>
+  </div>
+</section>

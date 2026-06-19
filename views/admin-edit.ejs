@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= device ? 'Edit' : 'Add' %> Device - Admin</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .admin-page { padding: 2rem 0; background: #0f0f1a; min-height: 100vh; color: #e0e0e0; }
+    .admin-header { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #16213e; display: flex; justify-content: space-between; align-items: center; }
+    .admin-header h1 { color: #fff; }
+    .form-card { background: #1a1a2e; padding: 2rem; border-radius: 12px; border: 1px solid #16213e; max-width: 800px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { display: block; color: #ccc; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #16213e; background: #0f0f1a; color: #fff; font-size: 1rem; outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #4f46e5; }
+    .form-group textarea { min-height: 120px; font-family: monospace; font-size: 0.9rem; }
+    .form-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .btn-save { background: #4f46e5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
+    .btn-cancel { background: #374151; color: #fff; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="admin-page">
+    <div class="container">
+      <div class="admin-header">
+        <h1><%= device ? 'Edit Device' : 'Add New Device' %></h1>
+        <a href="/sys-panel-8x3k1" class="btn-cancel">← Back</a>
+      </div>
+
+      <div class="form-card">
+        <form method="POST" action="<%= device ? '/sys-panel-8x3k1/edit/' + device.id : '/sys-panel-8x3k1/add' %>">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Device Name *</label>
+              <input type="text" name="name" required value="<%= device ? device.name : '' %>" placeholder="e.g. iPhone 15 Pro Max">
+            </div>
+            <div class="form-group">
+              <label>Brand *</label>
+              <input type="text" name="brand" required value="<%= device ? device.brand : '' %>" placeholder="e.g. Apple">
+            </div>
+            <div class="form-group">
+              <label>Category *</label>
+              <select name="category" required>
+                <option value="">Select category</option>
+                <% categories.forEach(c => { %>
+                  <option value="<%= c %>" <%= device && device.category === c ? 'selected' : '' %>><%= c %></option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Price ($) *</label>
+              <input type="number" name="price" step="0.01" min="0" required value="<%= device ? device.price : '' %>" placeholder="999">
+            </div>
+            <div class="form-group">
+              <label>Rating (1-5)</label>
+              <input type="number" name="rating" step="0.1" min="1" max="5" value="<%= device ? device.rating : '4.0' %>">
+            </div>
+            <div class="form-group">
+              <label>Availability</label>
+              <select name="availability">
+                <option value="true" <%= device && device.availability ? 'selected' : '' %>>Active</option>
+                <option value="false" <%= device && !device.availability ? 'selected' : '' %>>Hidden</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>Image URL</label>
+              <input type="text" name="image" value="<%= device ? device.image : '' %>" placeholder="https://example.com/image.jpg">
+            </div>
+            <div class="form-group full">
+              <label>Specifications (JSON)</label>
+              <textarea name="specs" placeholder='{"display": "6.7-inch OLED", "processor": "A17 Pro"}'>
+<%= device ? JSON.stringify(device.specs, null, 2) : '{\n  \n}' %>
+              </textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-save"><%= device ? 'Update Device' : 'Add Device' %></button>
+            <a href="/sys-panel-8x3k1" class="btn-cancel">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
